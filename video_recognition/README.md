@@ -17,7 +17,30 @@
 
 Please refer to [install.md](docs/install.md) for installation.
 
-We also provide docker file [cuda10.1](docker/docker_10.1) ([image url](https://hub.docker.com/layers/ninja0/mmdet/pytorch1.7.1-py37-cuda10.1-openmpi-mmcv1.3.3-apex-timm/images/sha256-06d745934cb255e7fdf4fa55c47b192c81107414dfb3d0bc87481ace50faf90b?context=repo)) and [cuda11.0](docker/docker_11.0) ([image url](https://hub.docker.com/layers/ninja0/mmdet/pytorch1.7.1-py37-cuda11.0-openmpi-mmcv1.3.3-apex-timm/images/sha256-79ec3ec5796ca154a66d85c50af5fa870fcbc48357c35ee8b612519512f92828?context=repo)) for convenient usage.
+Or use docker file [cuda10.1](docker/docker_10.1) ([image url](https://hub.docker.com/layers/ninja0/mmdet/pytorch1.7.1-py37-cuda10.1-openmpi-mmcv1.3.3-apex-timm/images/sha256-06d745934cb255e7fdf4fa55c47b192c81107414dfb3d0bc87481ace50faf90b?context=repo)) and [cuda11.0](docker/docker_11.0) ([image url](https://hub.docker.com/layers/ninja0/mmdet/pytorch1.7.1-py37-cuda11.0-openmpi-mmcv1.3.3-apex-timm/images/sha256-79ec3ec5796ca154a66d85c50af5fa870fcbc48357c35ee8b612519512f92828?context=repo)) for convenient usage.
+
+Or use:
+```
+conda create -n video python=3.7 -y
+conda activate video
+conda install pytorch==1.10.0 torchvision==0.11.1 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch
+pip install mmcv-full==1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/index.html
+pip install cython==0.29.36
+conda install timm
+pip install -v -e .
+```
+
+for apex
+```
+git clone https://github.com/NVIDIA/apex.git
+cd apex
+git tag # if not wanted version
+git branch -r
+git checkout origin/22.02-parallel-state # or another vesion
+python setup.py install --cuda_ext --cpp_ext
+pip3 install -v --no-cache-dir ./
+```
+then start training will encounter the error: IndexError: tuple index out of range, solve it by [issue](https://github.com/NVIDIA/apex/issues/694#issuecomment-918833904)
 
 ###  Data Preparation
 
@@ -47,7 +70,7 @@ bash tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --cfg-options model.backbone.pr
 ```
 For example, to train a `Iwin-T` model for Kinetics-400 dataset  with  8 gpus, run:
 ```
-bash tools/dist_train.sh configs/recognition/iwin/iwin_tiny_patch244_window877_kinetics400_1k.py 8 --cfg-options model.backbone.pretrained=<PRETRAIN_MODEL> 
+bash tools/dist_train.sh configs/recognition/iwin/iwin_tiny_patch244_window77_kinetics400_1k.py 8 --cfg-options model.backbone.pretrained=<PRETRAIN_MODEL> 
 ```
 
 **Note:** `use_checkpoint` is used to save GPU memory. Please refer to [this page](https://pytorch.org/docs/stable/checkpoint.html) for more details.
