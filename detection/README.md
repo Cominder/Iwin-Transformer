@@ -1,14 +1,18 @@
-# Iwin Transformer for Semantic Segmentaion
+# Iwin Transformer for Object Detection
 
 ## Results and Models
 
-### ADE20K
+**COCO Object Detection (2017 val)**
 
-| Backbone | Method | pretrain | Crop Size | Lr Schd | mIoU | #params | FLOPs | model |
+| Backbone | Method | pretrain | Lr Schd | box mAP | mask mAP | #params | FLOPs | model
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Iwin-T | UPerNet | ImageNet-1K | 512x512 | 160K | 44.70 | 61.9M | 946G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_patch4_window7_512_ade20k_1k.pth)|
-| Iwin-S | UperNet | ImageNet-1K | 512x512 | 160K | 47.50 | 83.2M | 1038G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_small_patch4_window7_512_ade20k_1k.pth)|
-| Iwin-B | UperNet | ImageNet-1K | 512x512 | 160K | 48.90 | 124.8M | 1189G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_base_patch4_window7_512_ade20k_1k.pth)|
+| Iwin-T | Mask R-CNN | ImageNet-1K | 1x | 42.2 | 38.9 | 48M | 268G |  [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_window7_mask_rcnn_1x_coco.pth)|
+| Iwin-S | Mask R-CNN | ImageNet-1K | 1x | 43.7 | 40.0 | 69M | 358G |  [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_small_window7_mask_rcnn_1x_coco.pth)|
+| Iwin-T | Mask R-CNN | ImageNet-1K | 3x | 44.7 | 40.9 | 48M | 268G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_window7_mask_rcnn_3x_coco.pth)|
+| Iwin-S | Mask R-CNN | ImageNet-1K | 3x | 45.5 | 41.0 | 69M | 358G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_small_window7_mask_rcnn_3x_coco.pth)|
+| Iwin-T | Cascade Mask R-CNN | ImageNet-1K | 1x | 47.2 | 40.9 | 86M | 747G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_window7_cascade_mask_rcnn_1x_coco.pth)|
+| Iwin-T | Cascade Mask R-CNN | ImageNet-1K | 3x | 49.4 | 42.9 | 86M | 747G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_window7_cascade_mask_rcnn_3x_coco.pth)|
+| Iwin-S | Cascade Mask R-CNN | ImageNet-1K | 3x | 49.4 | 43.0 | 107M | 837G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_small_window7_cascade_mask_rcnn_3x_coco.pth)|
 
 
 
@@ -16,39 +20,55 @@
 
 ### Installation
 
-Please refer to [get_started.md](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/get_started.md#installation) for installation and dataset preparation.
+Please refer to [get_started.md](https://github.com/open-mmlab/mmdetection/blob/master/docs/en/get_started.md) for installation and dataset preparation.
 
 ### Inference
 ```
 # single-gpu testing
-python tools/test.py <CONFIG_FILE> <SEG_CHECKPOINT_FILE> --eval mIoU
+python tools/test.py <CONFIG_FILE> <DET_CHECKPOINT_FILE> --eval bbox segm
 
 # multi-gpu testing
-tools/dist_test.sh <CONFIG_FILE> <SEG_CHECKPOINT_FILE> <GPU_NUM> --eval mIoU
-
-# multi-gpu, multi-scale testing
-tools/dist_test.sh <CONFIG_FILE> <SEG_CHECKPOINT_FILE> <GPU_NUM> --aug-test --eval mIoU
+tools/dist_test.sh <CONFIG_FILE> <DET_CHECKPOINT_FILE> <GPU_NUM> --eval bbox segm
 ```
 
 ### Training
 
-To train with pre-trained models, run:
+To train a detector with pre-trained models, run:
 ```
 # single-gpu training
-python tools/train.py <CONFIG_FILE> --options model.pretrained=<PRETRAIN_MODEL> [model.backbone.use_checkpoint=True] [other optional arguments]
+python tools/train.py <CONFIG_FILE> --cfg-options model.pretrained=<PRETRAIN_MODEL> [model.backbone.use_checkpoint=True] [other optional arguments]
 
 # multi-gpu training
-tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --options model.pretrained=<PRETRAIN_MODEL> [model.backbone.use_checkpoint=True] [other optional arguments] 
+tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --cfg-options model.pretrained=<PRETRAIN_MODEL> [model.backbone.use_checkpoint=True] [other optional arguments] 
 ```
-For example, to train an UPerNet model with a `Iwin-T` backbone and 8 gpus, run:
+For example, to train a Cascade Mask R-CNN model with a `Iwin-T` backbone and 8 gpus, run:
 ```
-tools/dist_train.sh configs/iwin/upernet_iwin_tiny_patch4_window7_512x512_160k_ade20k.py 8 --options model.pretrained=<PRETRAIN_MODEL> 
+tools/dist_train.sh configs/iwin/cascade_mask_rcnn_iwin_tiny_patch4_window7_mstrain_480-800_giou_4conv1f_adamw_3x_coco.py 8 --cfg-options model.pretrained=<PRETRAIN_MODEL> 
 ```
 
-**Notes:** 
-- `use_checkpoint` is used to save GPU memory. Please refer to [this page](https://pytorch.org/docs/stable/checkpoint.html) for more details.
-- The default learning rate and training schedule is for 8 GPUs and 2 imgs/gpu.
+**Note:** `use_checkpoint` is used to save GPU memory. Please refer to [this page](https://pytorch.org/docs/stable/checkpoint.html) for more details.
 
+
+### Apex (optional):
+We use apex for mixed precision training by default. To install apex, run:
+```
+git clone https://github.com/NVIDIA/apex
+cd apex
+pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
+```
+If you would like to disable apex, modify the type of runner as `EpochBasedRunner` and comment out the following code block in the [configuration files](configs/iwin):
+```
+# do not use mmdet version fp16
+fp16 = None
+optimizer_config = dict(
+    type="DistOptimizerHook",
+    update_interval=1,
+    grad_clip=None,
+    coalesce=True,
+    bucket_size_mb=-1,
+    use_fp16=True,
+)
+```
 
 ## Citing Iwin Transformer
 ```
@@ -67,6 +87,7 @@ tools/dist_train.sh configs/iwin/upernet_iwin_tiny_patch4_window7_512x512_160k_a
 
 > **Image Classification**: See [Iwin Transformer for Image Classification](https://github.com/Cominder/Iwin-Transformer/classification).
 
-> **Object Detection**: See [Iwin Transformer for Object Detection](https://github.com/SwinTransformer/Iwin-Transformer/detection).
+> **Semantic Segmentation**: See [Iwin Transformer for Semantic Segmentation](https://github.com/Cominder/Iwin-Transformer/segmentation).
 
 > **Video Recognition**: See [Iwin Transformer for Object Detection](https://github.com/Cominder/Iwin-Transformer/video_recognition).
+
