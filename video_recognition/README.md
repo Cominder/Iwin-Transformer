@@ -1,6 +1,6 @@
 # Video Iwin Transformer
 
-![teaser](figures/teaser3.PNG)
+![teaser](figures/teaser.PNG)
 
 ## Results and Models
 
