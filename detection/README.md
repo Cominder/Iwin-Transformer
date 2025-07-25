@@ -22,6 +22,29 @@
 
 Please refer to [get_started.md](https://github.com/open-mmlab/mmdetection/blob/master/docs/en/get_started.md) for installation and dataset preparation.
 
+or use:
+```
+conda create -n det python=3.7 -y
+conda activate det
+conda install pytorch==1.10.0 torchvision==0.11.1 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch
+pip install mmcv-full==1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/index.html
+pip install cython==0.29.36
+conda install timm
+pip install -v -e .
+```
+
+for apex
+```
+git clone https://github.com/NVIDIA/apex.git
+cd apex
+git tag # if not wanted version
+git branch -r
+git checkout origin/22.02-parallel-state # or another vesion
+python setup.py install --cuda_ext --cpp_ext
+pip3 install -v --no-cache-dir ./
+```
+then start training will encounter the error: IndexError: tuple index out of range, solve it by [issue](https://github.com/NVIDIA/apex/issues/694#issuecomment-918833904)
+
 ### Inference
 ```
 # single-gpu testing
