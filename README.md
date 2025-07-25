@@ -7,7 +7,6 @@
 ![teaser](classification/figures/teaser1.PNG)
 ![teaser](classification/figures/teaser2.PNG)
 ![teaser](classification/figures/teaser3.PNG)
-![teaser](classification/figures/teaser4.PNG)
 
 ## Results on ImageNet with Pretrained Models
 
