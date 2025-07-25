@@ -51,9 +51,9 @@
 
 | Backbone | Method | pretrain | Crop Size | Lr Schd | mIoU | #params | FLOPs | model |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | 
-| Swin-T | UPerNet | ImageNet-1K | 512x512 | 160K | 44.70 | 61.9M | 946G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_patch4_window7_512_ade20k_1k.pth)|
-| Swin-S | UperNet | ImageNet-1K | 512x512 | 160K | 47.50 | 83.2M | 1038G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_small_patch4_window7_512_ade20k_1k.pth)|
-| Swin-B | UperNet | ImageNet-1K | 512x512 | 160K | 48.90 | 124.8M | 1189G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_base_patch4_window7_512_ade20k_1k.pth)|
+| Iwin-T | UPerNet | ImageNet-1K | 512x512 | 160K | 44.70 | 61.9M | 946G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_patch4_window7_512_ade20k_1k.pth)|
+| Iwin-S | UperNet | ImageNet-1K | 512x512 | 160K | 47.50 | 83.2M | 1038G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_small_patch4_window7_512_ade20k_1k.pth)|
+| Iwin-B | UperNet | ImageNet-1K | 512x512 | 160K | 48.90 | 124.8M | 1189G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_base_patch4_window7_512_ade20k_1k.pth)|
 
 
 **Kinetics 400 Recognition**
