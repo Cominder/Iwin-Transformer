@@ -8,7 +8,6 @@
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Iwin-T | Mask R-CNN | ImageNet-1K | 1x | 42.2 | 38.9 | 48M | 268G |  [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_window7_mask_rcnn_1x_coco.pth)|
 | Iwin-S | Mask R-CNN | ImageNet-1K | 1x | 43.7 | 40.0 | 69M | 358G |  [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_small_window7_mask_rcnn_1x_coco.pth)|
-
 | Iwin-T | Mask R-CNN | ImageNet-1K | 3x | 44.7 | 40.9 | 48M | 268G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_window7_mask_rcnn_3x_coco.pth)|
 | Iwin-S | Mask R-CNN | ImageNet-1K | 3x | 45.5 | 41.0 | 69M | 358G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_small_window7_mask_rcnn_3x_coco.pth)|
 | Iwin-T | Cascade Mask R-CNN | ImageNet-1K | 1x | 47.2 | 40.9 | 86M | 747G | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_window7_cascade_mask_rcnn_1x_coco.pth)|
@@ -86,9 +85,9 @@ optimizer_config = dict(
 
 ## Other Links
 
-> **Image Classification**: See [Swin Transformer for Image Classification](https://github.com/Cominder/Iwin-Transformer/classification).
+> **Image Classification**: See [Iwin Transformer for Image Classification](https://github.com/Cominder/Iwin-Transformer/classification).
 
-> **Semantic Segmentation**: See [Swin Transformer for Semantic Segmentation](https://github.com/Cominder/Iwin-Transformer/segmentation).
+> **Semantic Segmentation**: See [Iwin Transformer for Semantic Segmentation](https://github.com/Cominder/Iwin-Transformer/segmentation).
 
-> **Video Recognition**: See [Swin Transformer for Object Detection](https://github.com/Cominder/Iwin-Transformer/video_recognition).
+> **Video Recognition**: See [Iwin Transformer for Object Detection](https://github.com/Cominder/Iwin-Transformer/video_recognition).
 
