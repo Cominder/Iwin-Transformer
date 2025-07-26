@@ -1,4 +1,4 @@
-# Iwin Transformer  <a href="https://arxiv.org/abs/2507.18405"><img src="https://img.shields.io/static/v1?label=Paper&message=Arxiv:Iwin&color=red&logo=arxiv"></a> &ensp;
+# Iwin Transformer  <a href="https://arxiv.org/abs/2507.18405"><img src="https://img.shields.io/static/v1?label=Paper&message=Arxiv:Iwin&color=red&logo=arxiv"></a> &ensp; <a href="https://huggingface.co/cominder/Iwin-Transformer"><img src="https://img.shields.io/static/v1?label=Model&message=Huggingface&color=yellow"></a> &ensp;
 
 ## Introduction
 
