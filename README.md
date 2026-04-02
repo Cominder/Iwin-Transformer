@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="classification/figures/logo_iwin.png"  height=100>
+  <img src="classification/figures/logo_iwin.png"  height=300>
 </p>
 
 
@@ -11,8 +11,8 @@
 **Iwin Transformer** (the name `Iwin` stands for **I**nterleaved **win**dow) is initially described in [arxiv](https://arxiv.org/abs/2507.18405). It is a position-embedding-free hierarchical vision transformer, which can be fine-tuned directly from low to high resolution, through the collaboration of innovative interleaved window attention and depthwise convolution.
 ![teaser](classification/figures/teaser1.PNG)
 ![teaser](classification/figures/teaser2.PNG)
-![teaser](classification/figures/teaser3.PNG)
-![teaser](classification/figures/teaser4.PNG)
+![teaser](classification/figures/teaser3.png)
+![teaser](classification/figures/teaser4.png)
 
 
 ## Results on ImageNet with Pretrained Models
