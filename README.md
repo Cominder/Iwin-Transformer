@@ -73,7 +73,7 @@
 | Iwin-S | ImageNet-1K | 30ep | 224 | 80.0 | 94.1 | 51.1M | 140G | [config](video_recognition/configs/recognition/iwin/iwin_small_patch244_window-77_kinetics400_1k.py) | [github](https://github.com/Iwin-Transformer/releases/download/v1.0/iwin_small_patch244_window-77_kinetics400_1k.pth) |
 
 
-**Image generation
+## Image generation
 
 We built an image generation model FlashDiT without position embedding using iwin 2D attention. It has less memory usage and faster training speed than Lightningdit.
 
@@ -81,7 +81,7 @@ We built an image generation model FlashDiT without position embedding using iwi
 |:---------:|:----------------|:----:|:---:|
 | [VA-VAE](https://huggingface.co/hustvl/vavae-imagenet256-f16d32-dinov2/blob/main/vavae-imagenet256-f16d32-dinov2.pt) | [FlashDiT-win8-XL-56ep](https://huggingface.co/cominder/flashdit/blob/main/flashdit-xl-win8-imagenet256-56ep.pt) | 5.37 | 2.30 |
 
-**Language Model
+## Language Model
 
 We built a language model "miniwin" based on the iwin's philosophy "no token is an island". See [miniwin](https://github.com/Cominder/miniwin) for more details.
 
