@@ -81,6 +81,10 @@ We built an image generation model FlashDiT without position embedding using iwi
 |:---------:|:----------------|:----:|:---:|
 | [VA-VAE](https://huggingface.co/hustvl/vavae-imagenet256-f16d32-dinov2/blob/main/vavae-imagenet256-f16d32-dinov2.pt) | [FlashDiT-win8-XL-56ep](https://huggingface.co/cominder/flashdit/blob/main/flashdit-xl-win8-imagenet256-56ep.pt) | 5.37 | 2.30 |
 
+## Language Model
+
+We built a language model "miniwin" based on the iwin's philosophy "no token is an island." See [miniwin](https://github.com/Cominder/miniwin) for more details.
+
 
 ## Acknowledgements 
 
