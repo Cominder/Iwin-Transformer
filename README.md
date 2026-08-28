@@ -1,3 +1,5 @@
+
+
 <p align="center">
   <img src="classification/figures/logo_iwin.png"  height=300>
 </p>
@@ -70,7 +72,7 @@
 | Backbone | Pretrain | Lr Schd | spatial crop | acc@1 | acc@5 | #params | FLOPs | config | model |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Iwin-T | ImageNet-1K | 30ep | 224 | 79.1 | 93.8 | 29.8M | 74G | [config](video_recognition/configs/recognition/iwin/iwin_tiny_patch244_window-77_kinetics400_1k.py) |[github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_tiny_patch244_window-77_kinetics400_1k.pth) |
-| Iwin-S | ImageNet-1K | 30ep | 224 | 80.0 | 94.1 | 51.1M | 140G | [config](video_recognition/configs/recognition/iwin/iwin_small_patch244_window-77_kinetics400_1k.py) | [github](https://github.com/Iwin-Transformer/releases/download/v1.0/iwin_small_patch244_window-77_kinetics400_1k.pth) |
+| Iwin-S | ImageNet-1K | 30ep | 224 | 80.0 | 94.1 | 51.1M | 140G | [config](video_recognition/configs/recognition/iwin/iwin_small_patch244_window-77_kinetics400_1k.py) | [github](https://github.com/Cominder/Iwin-Transformer/releases/download/v1.0/iwin_small_patch244_window-77_kinetics400_1k.pth) |
 
 
 ## Image generation
@@ -107,5 +109,3 @@ If you find our work helpful, feel free to give us a cite and a star🌟.
       url={https://arxiv.org/abs/2507.18405}, 
 }
 ```
-
-
