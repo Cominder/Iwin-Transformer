@@ -6,11 +6,12 @@
 
 
 
-# Iwin Transformer  <a href="https://arxiv.org/abs/2507.18405"><img src="https://img.shields.io/static/v1?label=Paper&message=Arxiv:Iwin&color=red&logo=arxiv"></a> &ensp; <a href="https://huggingface.co/cominder/Iwin-Transformer"><img src="https://img.shields.io/static/v1?label=Model&message=Huggingface&color=yellow"></a> &ensp;
+# Iwin Transformer  <a href="https://arxiv.org/abs/2507.18405"><img src="https://img.shields.io/static/v1?label=Paper&message=Arxiv:Iwin&color=red&logo=arxiv"></a> &ensp; <a href="https://huggingface.co/collections/cominder/Iwin-Transformer"><img src="https://img.shields.io/static/v1?label=Model&message=Huggingface&color=yellow"></a> &ensp;
+
 
 ## Introduction
 
-**Iwin Transformer** (the name `Iwin` stands for **I**nterleaved **win**dow) is initially described in [arxiv](https://arxiv.org/abs/2507.18405). It is a position-embedding-free hierarchical vision transformer, which can be fine-tuned directly from low to high resolution, through the collaboration of innovative interleaved window attention and depthwise convolution.
+**Iwin Transformer** (the name `Iwin` stands for **I**nterleaved **win**dow) is initially described in [arxiv](https://arxiv.org/abs/2507.18405). It is a position-embedding-free hierarchical vision transformer, which can be fine-tuned directly from low to high resolution through the collaboration of innovative interleaved window attention and depthwise convolution.
 ![teaser](classification/figures/teaser1.PNG)
 ![teaser](classification/figures/teaser2.PNG)
 ![teaser](classification/figures/teaser3.png)
